@@ -1,0 +1,7 @@
+/*  1. Общий фон и сброс отступов */
+html {
+    font-size: 10px;
+    height: 100%;
+    background: url("img/bg.jpg") no-repeat center/cover;
+}
+
