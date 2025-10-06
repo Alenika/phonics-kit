@@ -1,7 +1,76 @@
-/*  1. Общий фон и сброс отступов */
+:root {
+    --base: #fff;
+    --accent-hover: #ffc600;
+    --accent-active: #ff1493;
+    --bg-key: rgba(0, 0, 0, 0.4);
+    --bg-color: #1d1d1d;
+}
+
 html {
     font-size: 10px;
     height: 100%;
-    background: url("img/bg.jpg") no-repeat center/cover;
+    background: var(--bg-color) url("img/bg.jpg") no-repeat center/cover;
+    transition: background-image 0.3s ease;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.keys {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+}
+
+.key {
+    border: .4rem solid var(--base);
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 10rem;
+    text-align: center;
+    color: var(--base);
+    background: var(--bg-key);
+    will-change: transform, box-shadow;
+}
+
+kbd {
+    display: block;
+    font-size: 4rem;
+}
+.key:hover {
+    border-color: var(--accent-hover);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: var(--accent-active);
+    box-shadow: 0 0 2rem var(--accent-active), 0 0 4rem var(--accent-active);
+    transition: all 0.1s ease;
+}
+
+@media (max-width:600px) {
+    .keys {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .key {
+        width: 8rem;
+        font-size: 1.2rem;
+    }
+    kbd {
+        font-size: 3rem;
+    }
+}
