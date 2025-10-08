@@ -14,8 +14,8 @@ html {
 }
 
 body, html {
-    margin: 0;
-    padding: 0;
+    height: 100%;
+    overflow: hidden;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -25,9 +25,9 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    padding: 2rem 1rem;
-    min-height: 100vh;
+    gap: 0.6rem;
+    padding: 0;
+    height: 100%;
     justify-content: center;
 }
 
@@ -71,6 +71,28 @@ kbd {
     border-color: var(--accent-active);
     box-shadow: 0 0 2rem var(--accent-active), 0 0 4rem var(--accent-active);
     transition: all 0.1s ease;
+}
+
+.hint {
+    order: -1;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    opacity: 0.9;
+    font-weight: 600;
+    text-align: center;
+    color: var(--base);
+    font-size: 1.4rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    } to {
+        opacity: 0.85;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width:600px) {
