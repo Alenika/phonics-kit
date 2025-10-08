@@ -1,6 +1,6 @@
 :root {
     --base: #fff;
-    --accent-hover: #ffc600;
+    --accent-hover: #6bec08;
     --accent-active: #6fba40;
     --bg-key: rgba(0, 0, 0, 0.4);
     --bg-color: #1d1d1d;
@@ -21,33 +21,45 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.keys {
+.keyboard {
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 2rem 1rem;
     min-height: 100vh;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.middle { padding-left: 2.4rem;}
+.bottom {padding-left: 5rem;}
+
+.key {
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 0.6rem;
+    border: 2px solid transparent;
+    background: var(--bg-key);
+    color: var(--base);
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: all 0.8s ease;
     will-change: transform;
 }
 
-.key {
-    border: .4rem solid var(--base);
-    border-radius: .5rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-    padding: 1rem .5rem;
-    transition: all .07s ease;
-    width: 10rem;
-    text-align: center;
-    color: var(--base);
-    background: var(--bg-key);
-    will-change: transform, box-shadow;
+kbd {
+    font-size: 2.8rem;
 }
 
-kbd {
-    display: block;
-    font-size: 4rem;
-}
 .key:hover {
     border-color: var(--accent-hover);
     transform: scale(1.05);
@@ -55,22 +67,21 @@ kbd {
 }
 
 .playing {
-    transform: scale(1.1);
+    transform: translate(-3px);
     border-color: var(--accent-active);
     box-shadow: 0 0 2rem var(--accent-active), 0 0 4rem var(--accent-active);
     transition: all 0.1s ease;
 }
 
 @media (max-width:600px) {
-    .keys {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
     .key {
-        width: 8rem;
-        font-size: 1.2rem;
+        width: 3.8rem;
+        height: 3.8rem;
+        font-size: 1.3rem;
     }
     kbd {
-        font-size: 3rem;
+        font-size: 1.8rem;
     }
+    .middle {padding-left: 1.5rem;}
+    .bottom {padding-left: 3rem;}
 }
