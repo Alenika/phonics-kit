@@ -9,3 +9,14 @@ function playSound(e) {
     audio.play();
     key.classList.add('playing');
 }
+
+// Убираем подсветку, когда анимация закончилась
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+}
+
+// Вешаем обработчик на каждую кнопку
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
