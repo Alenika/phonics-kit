@@ -52,7 +52,7 @@ body, html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.8s ease;
+    transition: transform 0.07s ease;
     will-change: transform;
 }
 

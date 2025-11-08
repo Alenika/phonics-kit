@@ -20,3 +20,13 @@ function removeTransition(e) {
 // Вешаем обработчик на каждую кнопку
     const keys = document.querySelectorAll('.key');
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+// Вешаем обработчик клика 
+    keys.forEach(k => k.addEventListener('click', () => {
+    const audio = document.querySelector(`audio[data-key="${k.dataset.key}"]`);
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+    k.classList.add('playing');
+    })
+);
